@@ -5,8 +5,8 @@
 template<typename T>
 class CircleDoubleList : public Collection<T>
 {
-    Collection<T>::Node* head = nullptr;
-    Collection<T>::Node* tail = nullptr;
+     Collection<T>::Node* head = nullptr;
+      Collection<T>::Node* tail = nullptr;
 public:
 
     int countMovingInsert = 0;				// Кол-во пройденных элементов при выполнении операции - вставка
@@ -45,24 +45,29 @@ public:
 };
 
 
-template<typename T>
+template<class T>
  void CircleDoubleList<T>::add(T value)
 {
-    
+     typename Collection<T>::Node* temp = { new typename Collection<T>::Node(value) };
     if (this->head == nullptr) {
         
-        Collection<T>::Node* temp1 = new typename Collection<T>::Node(value);
-        this->head = temp1;
-        this->tail = temp1;
+        //Collection<T>::Node* temp1 = new class Collection<T>::Node(value);
+        
+        this->head = temp;
+        this->tail = temp;
         this->head->prev = this->tail;
+        this->head->next = this->tail;
         this->tail->next = this->head;
+        this->tail->prev = this->head;
     }
     else
     {
-        Collection<T>::Node* temp2 = new typename Collection<T>::Node(value,nullptr,nullptr);
-        this->head->next = temp2;
-        this->tail->prev = temp2;
-        this->tail = temp2;
+        
+        this->tail->next = temp;
+        temp->prev = this->tail;
+        this->tail = temp;
+        this->tail->next = this->head;
+        this->head->prev = this->tail;
 
     }
 }

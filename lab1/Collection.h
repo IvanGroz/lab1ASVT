@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
+template <class T>
 class Collection
 {
 protected:
