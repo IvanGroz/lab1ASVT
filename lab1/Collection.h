@@ -66,6 +66,5 @@ Collection<T>::Node::Node(const Node& node)
 template<typename T>
 Collection<T>::Node::~Node()
 {
-	delete this->prev;
-	delete this->next;
+	
 }

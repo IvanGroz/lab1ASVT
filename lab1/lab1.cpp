@@ -16,10 +16,16 @@ int main()
 {
 	CircleDoubleList<int> list;
 	list.add(1);
-	list.add(2);
+	list.add(4);
 	list.add(3);
 	list.add(4);
 	list.add(5);
+
+	list.insert(5,6);
+
+	list.removeByValue(4);
+
+	list.clear();
 
 	return 0;
 }
